@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import icon01 from "../assets/achiement.jpg";
 import {
   BookOpen,
   Briefcase,
@@ -47,7 +48,7 @@ const Home = () => {
       </section>
       {/*=============================== hero section end================*/}
 
-      {/*=============================== hero section ================*/}
+      {/*=============================== feature section ================*/}
       <section className="bg-gray-100 py-16">
         {" "}
         <div className="container mx-auto px-4">
@@ -92,7 +93,39 @@ const Home = () => {
           </div>{" "}
         </div>{" "}
       </section>
-      {/*=============================== hero section ================*/}
+      {/*=============================== feature end section ================*/}
+      {/*=============================== admission section ================*/}
+      <section className="bg-white py-16">
+        {" "}
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+          {" "}
+          <div className="md:w-1/2 mb-8 md:mb-0">
+            {" "}
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Admissions
+            </h2>{" "}
+            <p className="text-gray-600 mb-4">
+              {" "}
+              Register your interest for a place at Grema Secondary. Our
+              admissions process is designed to be straightforward and
+              transparent. Contact our admissions office today to learn more
+              about how you can join our community.{" "}
+            </p>{" "}
+            <Button
+              variant="outline"
+              className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2"
+              onClick={() => (window.location.href = "/admissions")}
+            >
+              {" "}
+              Enrol Today{" "}
+            </Button>{" "}
+          </div>{" "}
+          <div className="md:w-1/2">
+            {" "}
+            <img src={icon01} alt="Admissions" className="w-full h-auto" />{" "}
+          </div>{" "}
+        </div>{" "}
+      </section>
     </>
   );
 };
