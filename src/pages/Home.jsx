@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import icon01 from "../assets/achiement.jpg";
+import faqImg from "../assets/contact.jpg";
 import {
   BookOpen,
   Briefcase,
@@ -8,6 +9,7 @@ import {
   GraduationCap,
   Users,
 } from "lucide-react";
+import FaqList from "@/components/schoolView/FAQs/FaqList";
 
 const Home = () => {
   return (
@@ -126,6 +128,40 @@ const Home = () => {
           </div>{" "}
         </div>{" "}
       </section>
+
+      {/**____________________FAQs Section end _____________ */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left Image Section */}
+            <div className="lg:w-1/2 hidden md:block">
+              <img
+                src={faqImg}
+                alt="Frequently Asked Questions"
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+
+            {/* Right FAQ Section */}
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight mb-6">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Have questions about Grema Private Secondary School? We’re here
+                to help! Browse our FAQs to learn more about our programs,
+                location, and what makes us unique.
+              </p>
+
+              <div className="space-y-6">
+                <FaqList />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/**____________________FAQs Section end _____________ */}
     </>
   );
 };
