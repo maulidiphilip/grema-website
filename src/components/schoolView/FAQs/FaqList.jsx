@@ -1,4 +1,4 @@
-import { faqs } from "../../../assets/data/Faqs";
+import { faqs } from "@/assets/data/faqs";
 import FaqItem from "./FaqItem";
 
 const FaqList = () => {
