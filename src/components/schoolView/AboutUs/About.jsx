@@ -1,4 +1,6 @@
+import CountUp from "react-countup";
 import aboutImg from "../../../assets/contact.jpg";
+
 const About = () => {
   return (
     <section className="bg-gray-50 py-16">
@@ -27,7 +29,7 @@ const About = () => {
 
           {/* Text Section */}
           <div className="lg:w-1/2">
-            <h2 className="text-3xl font-semibold text-headingColor mb-4">
+            <h2 className="text-3xl font-semibold text-blue-500 mb-4">
               Our Mission
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -37,7 +39,7 @@ const About = () => {
               and skills needed to excel in their future endeavors.
             </p>
 
-            <h2 className="text-3xl font-semibold text-headingColor mb-4">
+            <h2 className="text-3xl font-semibold text-blue-500 mb-4">
               Why Choose Grema?
             </h2>
             <ul className="list-disc list-inside space-y-3 text-gray-700">
@@ -65,7 +67,7 @@ const About = () => {
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
           <div className="bg-white shadow-md rounded-lg p-8 transition-transform transform hover:scale-105">
             <h3 className="text-5xl font-extrabold text-primaryColor mb-2">
-              10+
+              <CountUp end={10} duration={2} />+
             </h3>
             <p className="text-gray-600 text-lg font-medium">
               Years of Academic Excellence
@@ -73,7 +75,7 @@ const About = () => {
           </div>
           <div className="bg-white shadow-md rounded-lg p-8 transition-transform transform hover:scale-105">
             <h3 className="text-5xl font-extrabold text-primaryColor mb-2">
-              500+
+              <CountUp end={500} duration={2.5} />+
             </h3>
             <p className="text-gray-600 text-lg font-medium">
               Successful Alumni
@@ -81,7 +83,7 @@ const About = () => {
           </div>
           <div className="bg-white shadow-md rounded-lg p-8 transition-transform transform hover:scale-105">
             <h3 className="text-5xl font-extrabold text-primaryColor mb-2">
-              15+
+              <CountUp end={15} duration={1.5} />+
             </h3>
             <p className="text-gray-600 text-lg font-medium">
               Dedicated Educators
