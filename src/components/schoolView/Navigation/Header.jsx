@@ -13,7 +13,7 @@ const navLinks = [
     display: "About Us",
     submenu: [
       { path: "/aboutus/mission", display: "Mission" },
-      { path: "/aboutus/history", display: "History" },
+      { path: "/aboutus/headteacher", display: "Headteacher" },
       { path: "/aboutus/team", display: "Our Team" },
     ],
   },
