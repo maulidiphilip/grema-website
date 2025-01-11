@@ -15,6 +15,7 @@ const navLinks = [
       { path: "/aboutus/profile", display: "School Profile" },
       { path: "/aboutus/headteacher", display: "Headteacher" },
       { path: "/aboutus/team", display: "Our Team" },
+      { path: "/aboutus/fees", display: "Fees" },
     ],
   },
   {

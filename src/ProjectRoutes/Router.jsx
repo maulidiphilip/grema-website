@@ -1,4 +1,5 @@
 import About from "@/components/schoolView/AboutUs/About";
+import FeeStructure from "@/components/schoolView/AboutUs/FeeStructure ";
 import Headteacher from "@/components/schoolView/AboutUs/Headteacher";
 // import Mission from "@/components/schoolView/AboutUs/Mission";
 import Team from "@/components/schoolView/AboutUs/Team";
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/aboutus/profile" element={<About />} />
         <Route path="/aboutus/headteacher" element={<Headteacher />} />
         <Route path="/aboutus/team" element={<Team />} />
+        <Route path="/aboutus/fees" element={<FeeStructure />} />
       </Routes>
     </div>
   );
