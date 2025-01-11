@@ -12,7 +12,7 @@ const navLinks = [
     path: "/aboutus",
     display: "About Us",
     submenu: [
-      { path: "/aboutus/mission", display: "Mission" },
+      { path: "/aboutus/profile", display: "School Profile" },
       { path: "/aboutus/headteacher", display: "Headteacher" },
       { path: "/aboutus/team", display: "Our Team" },
     ],
@@ -46,6 +46,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
+  // Sticky header on scroll
   const handleStickHeader = () => {
     window.addEventListener("scroll", () => {
       if (
@@ -65,6 +66,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleStickHeader);
   }, []);
 
+  // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
     if (menuRef.current) {
@@ -77,6 +79,7 @@ const Header = () => {
     }
   };
 
+  // Toggle dropdown for desktop
   const handleDropdownToggle = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
   };
@@ -86,6 +89,7 @@ const Header = () => {
       ref={headerRef}
       className="bg-white shadow-md fixed top-0 left-0 w-full z-50"
     >
+      {/* Top Contact Info */}
       <div className="bg-blue-600 py-2 px-4 text-lg text-gray-100">
         <div className="container mx-auto flex items-center justify-start gap-4">
           <span>
@@ -110,6 +114,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Navbar */}
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="text-xl font-bold text-headingColor">
           <Link to="/" className="hover:text-primaryColor">
@@ -117,43 +122,57 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-8 justify-center">
             {navLinks.map((link, index) => (
-              <li key={index} className="relative group">
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-primaryColor font-semibold"
-                      : "text-textColor hover:text-primaryColor"
-                  }
-                >
-                  {link.display}
-                </NavLink>
-                {link.submenu && (
-                  <ul className="hidden absolute left-0 top-full mt-2 bg-white shadow-md rounded-md py-2 group-hover:block">
-                    {link.submenu.map((sublink, subIndex) => (
-                      <li key={subIndex}>
-                        <NavLink
-                          to={sublink.path}
-                          className={({ isActive }) =>
-                            isActive
-                              ? "block px-4 py-2 text-primaryColor font-semibold"
-                              : "block px-4 py-2 text-textColor hover:text-primaryColor"
-                          }
-                        >
-                          {sublink.display}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
+              <li key={index} className="relative">
+                {!link.submenu ? (
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-primaryColor font-semibold"
+                        : "text-textColor hover:text-primaryColor"
+                    }
+                  >
+                    {link.display}
+                  </NavLink>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className="text-textColor hover:text-primaryColor font-medium"
+                    >
+                      {link.display}
+                    </button>
+                    {activeDropdown === index && (
+                      <ul className="absolute left-0 top-full mt-2 bg-white shadow-md rounded-md py-2">
+                        {link.submenu.map((sublink, subIndex) => (
+                          <li key={subIndex}>
+                            <NavLink
+                              to={sublink.path}
+                              className={({ isActive }) =>
+                                isActive
+                                  ? "block px-4 py-2 text-primaryColor font-semibold"
+                                  : "block px-4 py-2 text-textColor hover:text-primaryColor"
+                              }
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {sublink.display}
+                            </NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
                 )}
               </li>
             ))}
           </ul>
         </nav>
 
+        {/* Login Button */}
         <div className="hidden md:block">
           <Link to="/login">
             <Button className="ml-auto px-6 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600">
@@ -162,6 +181,7 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden">
           {isMenuOpen ? (
             <X className="w-6 h-6 cursor-pointer" onClick={toggleMenu} />
@@ -173,56 +193,60 @@ const Header = () => {
           )}
         </div>
 
+        {/* Mobile Menu */}
         <div
           ref={menuRef}
           className="absolute top-16 left-0 bg-white w-full shadow-md p-4 max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
         >
-          <div className="flex justify-end mb-4">
-            <X className="w-6 h-6 cursor-pointer" onClick={toggleMenu} />
-          </div>
           <ul className="flex flex-col gap-4">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <div className="flex justify-between items-center">
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-primaryColor font-semibold"
-                        : "text-textColor hover:text-primaryColor"
-                    }
-                    onClick={toggleMenu}
-                  >
-                    {link.display}
-                  </NavLink>
-                  {link.submenu && (
-                    <button
-                      className="text-textColor hover:text-primaryColor"
-                      onClick={() => handleDropdownToggle(index)}
+                  {!link.submenu ? (
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-primaryColor font-semibold"
+                          : "text-textColor hover:text-primaryColor"
+                      }
+                      onClick={toggleMenu}
                     >
-                      ▼
-                    </button>
+                      {link.display}
+                    </NavLink>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => handleDropdownToggle(index)}
+                        className="text-textColor hover:text-primaryColor font-medium"
+                      >
+                        {link.display}
+                      </button>
+                      {activeDropdown === index && (
+                        <ul className="ml-4 mt-2 bg-gray-100 rounded-lg">
+                          {link.submenu.map((sublink, subIndex) => (
+                            <li key={subIndex}>
+                              <NavLink
+                                to={sublink.path}
+                                className={({ isActive }) =>
+                                  isActive
+                                    ? "block px-4 py-2 text-primaryColor font-semibold"
+                                    : "block px-4 py-2 text-textColor hover:text-primaryColor"
+                                }
+                                onClick={() => {
+                                  toggleMenu();
+                                  setActiveDropdown(null);
+                                }}
+                              >
+                                {sublink.display}
+                              </NavLink>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
                   )}
                 </div>
-                {link.submenu && activeDropdown === index && (
-                  <ul className="ml-4 mt-2">
-                    {link.submenu.map((sublink, subIndex) => (
-                      <li key={subIndex}>
-                        <NavLink
-                          to={sublink.path}
-                          className={({ isActive }) =>
-                            isActive
-                              ? "block px-4 py-2 text-primaryColor font-semibold"
-                              : "block px-4 py-2 text-textColor hover:text-primaryColor"
-                          }
-                          onClick={toggleMenu}
-                        >
-                          {sublink.display}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>
