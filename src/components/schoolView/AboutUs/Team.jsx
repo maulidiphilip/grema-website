@@ -8,8 +8,8 @@ export const teamMembers = [
   {
     name: "Philip Maulidi, PhD",
     position: "Director / Founder",
-    email: "ekaonga@mahsa.mw",
-    phone: "+265 991 521 003",
+    email: "maulidiphilip@gmail.mw",
+    phone: "+265 991 103 578",
     image: EmilyImage,
   },
   {

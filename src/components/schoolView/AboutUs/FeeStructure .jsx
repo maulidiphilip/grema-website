@@ -1,27 +1,6 @@
 const FeeStructure = () => {
-  const feeData = [
-    {
-      level: "Pre-Primary",
-      term1: "K50,000",
-      term2: "K50,000",
-      term3: "K50,000",
-      annual: "K150,000",
-    },
-    {
-      level: "Primary (Grades 1-7)",
-      term1: "K75,000",
-      term2: "K75,000",
-      term3: "K75,000",
-      annual: "K225,000",
-    },
-    {
-      level: "Secondary (Forms 1-4)",
-      term1: "K100,000",
-      term2: "K100,000",
-      term3: "K100,000",
-      annual: "K300,000",
-    },
-  ];
+  const feePerTerm = "K120,000"; // Set the common fee per term
+  const annualFee = "K360,000"; // Calculate the annual fee
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -30,20 +9,19 @@ const FeeStructure = () => {
       </h2>
 
       <p className="text-gray-700 mb-8 text-center md:text-left">
-        Our fee structure is designed to be transparent and accessible. The fees
-        cover tuition, learning materials, and access to school facilities.
-        Please note that these fees are subject to change. Contact the school
-        administration for the most up-to-date information.
+        Our fee structure is designed to be transparent and accessible. All
+        forms pay the same amount per term. The fees cover tuition, learning
+        materials, and access to school facilities. These fees are subject to
+        change. For the most up-to-date information, please contact the school
+        administration.
       </p>
 
       <div className="overflow-x-auto">
-        {" "}
-        {/* Added for horizontal scrolling on smaller screens */}
         <table className="min-w-full border-collapse border border-gray-300 shadow-md">
           <thead>
             <tr className="bg-gray-100">
               <th className="py-2 px-4 border border-gray-300 font-medium text-left">
-                Level
+                Form
               </th>
               <th className="py-2 px-4 border border-gray-300 font-medium text-left">
                 Term 1
@@ -60,25 +38,24 @@ const FeeStructure = () => {
             </tr>
           </thead>
           <tbody>
-            {feeData.map((item, index) => (
+            {/* Map over the forms, but display the same fees */}
+            {["Form 1", "Form 2", "Form 3", "Form 4"].map((form, index) => (
               <tr
                 key={index}
                 className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
               >
+                <td className="py-2 px-4 border border-gray-300">{form}</td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {item.level}
+                  {feePerTerm}
                 </td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {item.term1}
+                  {feePerTerm}
                 </td>
                 <td className="py-2 px-4 border border-gray-300">
-                  {item.term2}
-                </td>
-                <td className="py-2 px-4 border border-gray-300">
-                  {item.term3}
+                  {feePerTerm}
                 </td>
                 <td className="py-2 px-4 border border-gray-300 font-bold">
-                  {item.annual}
+                  {annualFee}
                 </td>
               </tr>
             ))}
