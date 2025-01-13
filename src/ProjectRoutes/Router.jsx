@@ -3,6 +3,7 @@ import FeeStructure from "@/components/schoolView/AboutUs/FeeStructure ";
 import Headteacher from "@/components/schoolView/AboutUs/Headteacher";
 // import Mission from "@/components/schoolView/AboutUs/Mission";
 import Team from "@/components/schoolView/AboutUs/Team";
+import Admission from "@/components/schoolView/JoinUs/Admission";
 import VacancyPage from "@/components/schoolView/JoinUs/Vacancies";
 import Home from "@/pages/Home";
 import { Route, Routes } from "react-router-dom";
@@ -18,7 +19,8 @@ const Router = () => {
         <Route path="/aboutus/headteacher" element={<Headteacher />} />
         <Route path="/aboutus/team" element={<Team />} />
         <Route path="/aboutus/fees" element={<FeeStructure />} />
-        <Route path="/joinus/vacancy" element={<VacancyPage />}/>
+        <Route path="/joinus/vacancy" element={<VacancyPage />} />
+        <Route path="/joinus/admission" element={<Admission />} />
       </Routes>
     </div>
   );

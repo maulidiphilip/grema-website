@@ -7,8 +7,6 @@ const Layout = () => {
     <>
       <Header />
       <main className="mt-20">
-        {" "}
-        {/* Adjust this value as needed */}
         <Router />
       </main>
       <Footer />

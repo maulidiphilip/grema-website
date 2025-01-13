@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import footerImg from "../../../assets/favicon.svg";
 const Footer = () => {
   return (
     <footer className="bg-blue-600 text-white py-10">
@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="lg:w-1/4">
             <Link to="/">
               <img
-                src="/path-to-logo/logo.png"
+                src={footerImg}
                 alt="Grema Pvt Secondary School Logo"
                 className="w-32 mb-4"
               />
