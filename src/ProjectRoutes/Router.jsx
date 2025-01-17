@@ -5,6 +5,7 @@ import Headteacher from "@/components/schoolView/AboutUs/Headteacher";
 import Team from "@/components/schoolView/AboutUs/Team";
 import Admission from "@/components/schoolView/JoinUs/Admission";
 import VacancyPage from "@/components/schoolView/JoinUs/Vacancies";
+import ContactPage from "@/components/schoolView/ContactUs/Contact";
 import Home from "@/pages/Home";
 import { Route, Routes } from "react-router-dom";
 
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/aboutus/fees" element={<FeeStructure />} />
         <Route path="/joinus/vacancy" element={<VacancyPage />} />
         <Route path="/joinus/admission" element={<Admission />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </div>
   );
