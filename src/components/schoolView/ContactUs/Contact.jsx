@@ -1,7 +1,7 @@
 // src/components/ContactUs.jsx
 
 import React from "react";
-import contactImg from "../../../assets/contact.PNG";
+import contactImg from "../../../assets/contactus.png";
 
 const ContactUs = () => {
   return (
